@@ -2,9 +2,9 @@ from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes
 
-BOT_TOKEN = "8115280459:AAHlp3XSwXeI_zuIqS9rP_uJionyCqWgVSk"
+BOT_TOKEN = "8115280459:AAHlp3XSwXeI_zuIqS9rP_uJionyCqWgVSk"  # Replace securely
 
-# Custom footer to add to each video
+# Footer to append
 APPENDED_HTML = """
 \n\n🎓 Join Our Free Course Community 🎓
 
@@ -12,21 +12,18 @@ APPENDED_HTML = """
 📱 <a href="https://whatsapp.com/channel/0029Vai3cmf2v1IvBuU6l21s">WhatsApp Channel</a>
 🌐 <a href="https://www.paidcourse-infree.store/">Visit Our Website</a>
 
-🔖 Contact: @yourusername
+🔖 Contact: @Piyushyoutuber11
 """
 
 async def handle_video(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if update.message.video:
+    if update.message and update.message.video:
+        video_file_id = update.message.video.file_id
         original_caption = update.message.caption or ""
         new_caption = original_caption + APPENDED_HTML
 
-        # Forward video
-        await update.message.forward(chat_id=update.effective_chat.id)
-
-        # Edit caption of forwarded message
-        await context.bot.edit_message_caption(
-            chat_id=update.effective_chat.id,
-            message_id=update.message.message_id + 1,
+        # Re-send video with updated caption
+        await update.message.reply_video(
+            video=video_file_id,
             caption=new_caption,
             parse_mode=ParseMode.HTML
         )
