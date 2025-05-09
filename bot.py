@@ -1,8 +1,12 @@
 from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes
+import os
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+
 
 BOT_TOKEN = "8115280459:AAHlp3XSwXeI_zuIqS9rP_uJionyCqWgVSk"  # Replace securely
+BOT_TOKEN = "8115280459:AAHlp3XSwXeI_zuIqS9rP_uJionyCqWgVSk"
 
 # Footer to append
 APPENDED_HTML = """
