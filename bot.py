@@ -1,12 +1,8 @@
 from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes
-import os
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-
 
 BOT_TOKEN = "8115280459:AAHlp3XSwXeI_zuIqS9rP_uJionyCqWgVSk"  # Replace securely
-BOT_TOKEN = "8115280459:AAHlp3XSwXeI_zuIqS9rP_uJionyCqWgVSk"
 
 # Footer to append
 APPENDED_HTML = """
@@ -16,7 +12,7 @@ APPENDED_HTML = """
 📱 <a href="https://whatsapp.com/channel/0029Vai3cmf2v1IvBuU6l21s">WhatsApp Channel</a>
 🌐 <a href="https://www.paidcourse-infree.store/">Visit Our Website</a>
 
-🔖 Contact: @Piyushyoutuber11
+🔖 Contact: @yourusername
 """
 
 async def handle_video(update: Update, context: ContextTypes.DEFAULT_TYPE):
